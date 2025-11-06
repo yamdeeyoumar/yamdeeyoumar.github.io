@@ -26,7 +26,15 @@
 <h1>
 projects:
 </h1>
-<h2><a href="#cody">    cody    </a></h2>   ---  <h2><a href="#workbench">   workbench   </a></h2>   ---   <h2><a href="#esp32">  esp32-cam for printer   </a></h2>  ---   <h2><a href="#tec">   thermoelectric car  </a></h2>   ---   <h2><a href="#tmg"> textile machinery gearbox  </a> </h2>   ---   <h2><a href="#smc">    stepper motor controller </a> </h2>   ---   <h2><a href="#cyc">    cycloidal drive </a> </h2>   ---   <h2><a href="#vacb">    vibration analysis of cantilever beam </a> </h2>
+<h2><a href="#cody">    cody    </a></h2>
+---  <h2><a href="#workbench">   workbench   </a></h2>
+---   <h2><a href="#esp32">  esp32-cam for printer   </a></h2>
+---   <h2><a href="#tec">   thermoelectric car  </a></h2>
+---   <h2><a href="#tmg"> textile machinery gearbox  </a> </h2>
+---   <h2><a href="#smc">    stepper motor controller </a> </h2>
+---   <h2><a href="#cyc">    cycloidal drive </a> </h2>
+---   <h2><a href="#vacb">    vibration analysis of cantilever beam </a> </h2>
+---   <h2><a href="#trimmer">    trimmer stand </a> </h2>
 </div>
 <div>
 
@@ -498,6 +506,53 @@ I cannot explicitly outline all parameters since this was a project for universi
 </div><br>
 <h4 id="repository">Project repository</h4>
 <br><p>For the python program, <a href="https://github.com/yamdeeyoumar/mech460_VACB"> click here </a>
+</p>
+
+<!-- Trimmer --><div id="imggrp"><u><h3 id="trim">trimmer stand</h3></u></div>
+<p>
+<br><br><p>
+    This project started as an experiment in <strong>3D scanning and reverse engineering</strong>
+    a metal trimmer to design a custom stand. My initial attempt used <em>Meshroom</em>, following
+    <a href="https://www.youtube.com/watch?v=8wQGbmLulBw&t=1s" target="_blank">
+        this YouTube tutorial
+    </a>.
+    Despite multiple tries, the results were inconsistent — reflective surfaces and poor lighting
+    made it difficult to generate a complete mesh.
+</p>
+
+<br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_1.jpg" alt="image"></div>
+
+<br><br><p>
+    After switching to <em>KIRI Engine</em> (a mobile photogrammetry app),
+    I surprisingly obtained a <strong>high-quality scan on the first attempt</strong>,
+    even in suboptimal lighting. Applying a light powder coat helped reduce glare from the
+    trimmer’s shiny surface.
+</p>
+
+
+<br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_2.jpg" alt="image"></div>
+
+<br><br><p>
+    The scanned model was cleaned in <em>MeshLab</em> — removing the background plane and
+    closing holes — before being imported into <em>SolidWorks</em>. There, I modeled a
+    <strong>custom stand</strong> with a plywood base for added weight and stability.
+    The final piece fits neatly beside the sink, keeping the trimmer upright and secure.
+</p>
+
+<br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_3.jpg" alt="image"></div>
+
+
+<br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_4.jpg" alt="image"></div>
+
+<ul>
+    <li><strong>Tools &amp; Methods:</strong> Meshroom, KIRI Engine (photogrammetry), MeshLab, SolidWorks, 3D scanning
+        cleanup, woodworking</li>
+    <li><strong>Outcome:</strong> Transitioned from partial Meshroom scans to a complete KIRI Engine model, leading to a
+        functional and stable trimmer stand design.</li>
+</ul>
+
+<br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_5.jpg" alt="image"></div>
+
 </p>
 </div>
 </body>
