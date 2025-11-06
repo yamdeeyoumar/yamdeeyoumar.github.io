@@ -373,7 +373,7 @@ I cannot explicitly outline all parameters since this was a project for universi
         </iframe>
         </div>
 <div id="imggrp">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WpjY3gYZrNc?si=eCxJQcC5IL3Gy-zr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+<br><iframe width="560" height="315" src="https://www.youtube.com/embed/WpjY3gYZrNc?si=eCxJQcC5IL3Gy-zr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
 </div>
 </p>
 
@@ -481,7 +481,24 @@ I cannot explicitly outline all parameters since this was a project for universi
         <p>This exercise helped the mechanical team better understand the long term drawbacks of a 3D printed drive at the aforementioned scale. The cycloidal drive quickly wears down and loses alot of its favorable properties. Quick way to reduce friction in the drive would be to replace the lobes of the cycloidal profile against which the disk moves with rollers but this brings with it additional hardware costs. One could also have multiple cycloidal disks offset by smaller angles but this would keep decreasing the load pin diameter to a point where it would be impossible for the pins to be structural!</p>
         <p>Further explorations into more accessible alternatives to the dual-stage timing belt reduction will also be conducted in the near future. :)</p>
     </p>
+<!-- MECH 460 FEA --><div id="imggrp"><u><h3 id="tmg">vibration analysis of a cantilever beam (mech 460)</h3></u></div>
 
+<p>
+<b>Summary:</b>
+<br> In this project, I analyzed how a cantilever beam behaves under harmonic excitation using **Finite Element Analysis (FEA)**. The beam was discretized in Python, where stiffness and mass matrices were assembled element by element and solved for natural frequencies and vibration modes.
+
+By refining the mesh from 4 to 128 elements, the results showed clear convergence — with a **relative error below 0.1 %** at around 16 elements. A **1 kN harmonic load** applied at the beam’s surface produced resonance peaks at the first three natural frequencies, with a maximum **tip displacement of 13 cm** near 31 Hz.
+
+To reduce vibration, I experimented with **mass and spring-based damping**. Adding a **compression spring (k ≈ 15 750 N/m)** reduced the tip deflection to **≈ 4 cm**, meeting the 8 cm design limit. The solution remained **low-cost (~ $19)** and validated the model’s physical accuracy.
+
+**Tools & Methods:** Python (NumPy, SciPy, Matplotlib), Beam element formulation, Harmonic response, Modal analysis  
+**Outcome:** Reduced resonance displacement by ~ 70 % using a spring-based tuning approach.
+<br>
+<div id="imggrp">
+        <iframe src="pdf\Vibration Analysis of a Cantilever Beam_460 (1).pdf" width="720" height="960">
+        </iframe>
+        </div>
+</p>
 </div>
 </body>
 </html>
