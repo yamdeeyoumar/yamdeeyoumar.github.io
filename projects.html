@@ -26,7 +26,7 @@
 <h1>
 projects:
 </h1>
-<h2><a href="#cody">    cody    </a></h2>   ---  <h2><a href="#workbench">   workbench   </a></h2>   ---   <h2><a href="#esp32">  esp32-cam for printer   </a></h2>  ---   <h2><a href="#tec">   thermoelectric car  </a></h2>   ---   <h2><a href="#tmg"> textile machinery gearbox  </a> </h2>   ---   <h2><a href="#smc">    stepper motor controller </a> </h2>   ---   <h2><a href="#cyc">    cycloidal drive </a> </h2>
+<h2><a href="#cody">    cody    </a></h2>   ---  <h2><a href="#workbench">   workbench   </a></h2>   ---   <h2><a href="#esp32">  esp32-cam for printer   </a></h2>  ---   <h2><a href="#tec">   thermoelectric car  </a></h2>   ---   <h2><a href="#tmg"> textile machinery gearbox  </a> </h2>   ---   <h2><a href="#smc">    stepper motor controller </a> </h2>   ---   <h2><a href="#cyc">    cycloidal drive </a> </h2>   ---   <h2><a href="#vacb">    vibration analysis of cantilever beam </a> </h2>
 </div>
 <div>
 
@@ -481,10 +481,10 @@ I cannot explicitly outline all parameters since this was a project for universi
         <p>This exercise helped the mechanical team better understand the long term drawbacks of a 3D printed drive at the aforementioned scale. The cycloidal drive quickly wears down and loses alot of its favorable properties. Quick way to reduce friction in the drive would be to replace the lobes of the cycloidal profile against which the disk moves with rollers but this brings with it additional hardware costs. One could also have multiple cycloidal disks offset by smaller angles but this would keep decreasing the load pin diameter to a point where it would be impossible for the pins to be structural!</p>
         <p>Further explorations into more accessible alternatives to the dual-stage timing belt reduction will also be conducted in the near future. :)</p>
     </p>
-<!-- MECH 460 FEA --><div id="imggrp"><u><h3 id="tmg">vibration analysis of a cantilever beam (mech 460)</h3></u></div>
+<!-- MECH 460 FEA --><div id="imggrp"><u><h3 id="vacb">vibration analysis of a cantilever beam (mech 460)</h3></u></div>
 
 <p>
-<h4 id="summary"><b>Summary</b></h4>
+<h4 id="summary">Summary</h4>
 <br><br> <p>In this project, I analyzed how a cantilever beam behaves under harmonic excitation using <b>Finite Element Analysis (FEA)</b>. The beam was discretized in Python, where stiffness and mass matrices were assembled element by element and solved for natural frequencies and vibration modes.</p>
 <br><br> <p>By refining the mesh from 4 to 128 elements, the results showed clear convergence — with a <b>relative error below 0.1 %</b> at around 16 elements. A <b>1 kN harmonic load</b> applied at the beam’s surface produced resonance peaks at the first three natural frequencies, <b>with a maximum tip displacement of 13 cm near 31 Hz.</b></p>
 <br><br> <p>To reduce vibration, I experimented with <b>mass and spring-based damping</b>. Adding a <b>compression spring (k ≈ 15 750 N/m)</b> reduced the tip deflection to <b>≈ 4 cm</b>, meeting the 8 cm design limit. The solution remained <b>low-cost (~ $19)</b> and validated the model’s physical accuracy.</p>
@@ -496,9 +496,8 @@ I cannot explicitly outline all parameters since this was a project for universi
         <iframe src="pdf\Vibration Analysis of a Cantilever Beam_460 (1).pdf" width="720" height="960">
         </iframe>
 </div><br>
-<p>
-<h4 id="repository"><b>Project repository</b></h4>
-<br>For the python program, <a href="https://github.com/yamdeeyoumar/mech460_VACB"> click here </a>
+<h4 id="repository">Project repository</h4>
+<br><p></p>For the python program, <a href="https://github.com/yamdeeyoumar/mech460_VACB"> click here </a>
 </p>
 </div>
 </body>
