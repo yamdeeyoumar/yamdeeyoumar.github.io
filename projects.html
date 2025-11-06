@@ -485,12 +485,12 @@ I cannot explicitly outline all parameters since this was a project for universi
 
 <p>
 <b>Summary:</b>
-<br><br> In this project, I analyzed how a cantilever beam behaves under harmonic excitation using <b>Finite Element Analysis (FEA)</b>. The beam was discretized in Python, where stiffness and mass matrices were assembled element by element and solved for natural frequencies and vibration modes.
-<br><br>By refining the mesh from 4 to 128 elements, the results showed clear convergence — with a <b>relative error below 0.1 %</b> at around 16 elements. A <b>1 kN harmonic load</b> applied at the beam’s surface produced resonance peaks at the first three natural frequencies, <b>with a maximum tip displacement of 13 cm near 31 Hz.</b>
-<br><br>To reduce vibration, I experimented with <b>mass and spring-based damping</b>. Adding a <b>compression spring (k ≈ 15 750 N/m)</b> reduced the tip deflection to <b>≈ 4 cm</b>, meeting the 8 cm design limit. The solution remained <b>low-cost (~ $19)</b> and validated the model’s physical accuracy.
-<br><br><b>Tools & Methods:</b> Python (NumPy, SciPy, Matplotlib), Beam element formulation, Harmonic response, Modal analysis  
-<br><br><b>Outcome:</b> Reduced resonance displacement by ~ 70 % using a spring-based tuning approach.
-<br>
+<br><br> <p>In this project, I analyzed how a cantilever beam behaves under harmonic excitation using <b>Finite Element Analysis (FEA)</b>. The beam was discretized in Python, where stiffness and mass matrices were assembled element by element and solved for natural frequencies and vibration modes.</p>
+<br><br> <p>By refining the mesh from 4 to 128 elements, the results showed clear convergence — with a <b>relative error below 0.1 %</b> at around 16 elements. A <b>1 kN harmonic load</b> applied at the beam’s surface produced resonance peaks at the first three natural frequencies, <b>with a maximum tip displacement of 13 cm near 31 Hz.</b></p>
+<br><br> <p>To reduce vibration, I experimented with <b>mass and spring-based damping</b>. Adding a <b>compression spring (k ≈ 15 750 N/m)</b> reduced the tip deflection to <b>≈ 4 cm</b>, meeting the 8 cm design limit. The solution remained <b>low-cost (~ $19)</b> and validated the model’s physical accuracy.</p>
+<br><br><b> <p>Tools & Methods:</b> Python (NumPy, SciPy, Matplotlib), Beam element formulation, Harmonic response, Modal analysis  </p>
+<br><br><b> <p>Outcome:</b> Reduced resonance displacement by ~ 70 % using a spring-based tuning approach.</p>
+<br><br>
 </p>
 <div id="imggrp">
         <iframe src="pdf\Vibration Analysis of a Cantilever Beam_460 (1).pdf" width="720" height="960">
