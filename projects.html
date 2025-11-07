@@ -630,6 +630,61 @@ I cannot explicitly outline all parameters since this was a project for universi
 For the various programs, <a href="https://github.com/yamdeeyoumar/mech472_ROB"> click here.</a>
 This was built on a simulation and image manipulation framework provided by our professor, dependnecies are included in the repository.
 </p>
+
+<br><!-- Cricket Overlay --><div id="imggrp"><u><h3 id="cric">cricket livestream overlay</h3></u></div>
+<p>
+<br><br><p>
+    This project delivers a <strong>live cricket scoreboard overlay</strong> that automatically syncs with
+    match data from the <em>CricClubs</em> platform. Designed for <strong>Dragons Cricket Club</strong>, it enhances live
+    streams with professional-style graphics, player stats, and smooth animations — fully automated and maintenance-free.
+  </p>
+
+  <br><br><h4>⚙️ System Architecture</h4>
+  <br><br><p>
+    The system uses a two-part Cloudflare-based setup:
+
+      <br><strong>Cloudflare Worker API:</strong> Fetches JSON data from the CricClubs public API, parses it, and
+      returns only the required match statistics (runs, wickets, overs, run rate) through a lightweight
+      cached endpoint to minimize latency and API load.
+    
+      <br><strong>Cloudflare Page Overlay:</strong> A front-end web interface built with <em>HTML, CSS, and JavaScript</em>
+      that renders the scoreboard, player info, and live updates in real time. It’s designed to integrate
+      seamlessly into streaming software such as OBS or Streamlabs.
+    </p>
+
+  <br><br><h4>💻 Core Features</h4>
+  <br><p>
+    <strong>Real-Time Updates:</strong> Automatically refreshes every few seconds with no manual input or reloads.
+    <strong>Animation Layer:</strong> Smooth CSS transitions for wickets, score changes, and innings updates.
+    <strong>Responsive Design:</strong> Works across both web browsers and broadcast overlays (1080p/720p compatible).
+    <strong>Custom Branding:</strong> Dragons-themed visual style with team logos, Sora-inspired fonts, and dynamic match coloring.
+    </p> 
+  <br><br><h4>🧠 Development Notes</h4>
+  <br><br><p>
+    The overlay’s data pipeline is handled entirely on Cloudflare’s edge network for low latency and high reliability.
+    This setup allows multiple matches to be streamed simultaneously without hosting costs or server maintenance.
+    The focus was on <strong>clean design, scalability, and zero backend overhead</strong>.
+  </p>
+
+  <br><br><h4>🎯 Outcome</h4>
+  <p>
+    The overlay system is now actively used in <strong>Dragons Cricket Club</strong> match streams, displaying live
+    scores and stats directly pulled from CricClubs data. It’s lightweight, serverless, and designed to expand with
+    upcoming features such as player photo cards, score summaries, and custom match themes. Each match on criclub has
+    an associated matchId and clubId that can be used to generate a unique overlay for that match, just replace the values in the URL of the overlay.
+</p>
+
+  <br><br><div id="imggrp"><iframe width="560" height="315" src="https://www.youtube.com/watch?v=Qog30eJot40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+  <br><br><p>
+    <strong>Tools &amp; Methods:</strong> HTML, CSS, JavaScript, Cloudflare Workers, Cloudflare Pages, JSON API integration
+    <br><strong>Outcome:</strong> Fully automated real-time overlay hosted entirely on Cloudflare’s edge network.
+  </p>
+
+  <br><br><p>
+    📁 <a href="https://github.com/yamdeeyoumar/cricket-overlay" target="_blank">View the project on GitHub</a>
+  </p>
+</p>
 </div>
 </body>
 </html>
