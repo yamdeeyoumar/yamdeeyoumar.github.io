@@ -690,6 +690,77 @@ This was built on a simulation and image manipulation framework provided by our 
     📁 <a href="https://github.com/yamdeeyoumar/cricket-overlay" target="_blank">View the project on GitHub</a>
   </p>
 </p>
+
+<br><!-- URDF Generation --><div id="imggrp"><u><h3 id="urdf">urdf workflow</h3></u></div>
+<p>
+<br><p>
+    I had the CAD of of an open-source dexterous hand modelled in Solidworks. The goal
+    was to generate a URDF file for simulation of said hand. The available solidwork to URDF
+    online did not have very good documentation and was very buggy. 
+</p>
+<br><p>
+    I love CAD-ing in SW but the development of scripts in Fusion360 using python is much more intuitive to me.
+    So I stumbled upon Syuntoku's fusion2urdf exporter on Github and started experimenting with it.
+    The documentation does not include much information on joint axis's and how to account for these in the modelling process.
+    After a lot of trial and error I was able to generate a URDF file that worked in RVIZ and Gazebo, here I outline my workflow
+    for any CAD model to URDF generation using Fusion360 and my version of fusion2urdf.
+    I moved on to other projects before automating the final part of this.
+</p>
+<br><p>
+    First I exported all SLDprts as Step files and imported them into Fusion360 and setup the assembly.
+    Follow the same child parent relationships as mentioned in the syuntoku repository because
+    that is how componentOne and componentTwo are defined in the fusion API script.
+</p
+<br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/urdf/hand ass.png" alt="image"></div>
+
+<br><h4>First Hurdle</h4>
+<br><p>
+    Generating a URDF from this setup gave me a URDF first try but all the joints
+    and axis of rotations except that for the body attached to the base link are messed up.
+    This really formed the basis for my frustrations with the tool and opening up the script and looking
+    under the hood. :)
+</p
+<br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/urdf/first urdf.png" alt="image"></div>
+
+<br><h4>First Hurdle</h4>
+<br><p>
+    After assembling the bodies in Fusion, I position the origin of child bodies with the position of the joint and
+    I align the axis of rotation with the z-axis of the body. 
+</p
+<br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/urdf/Updated Origin.png" alt="image"></div>
+<br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/urdf/Overlap.png" alt="image"></div>
+
+<br><p>
+    This would also make understanding the gnerated URDF easier, as the joint
+    axis would always be along the z-axis of the child body and represented as [0 0 +-1], the
+    origin of this joint will be at approx [0 0 0] with minor offsets due to the geometry of the body / preference.
+    </p
+
+<br><h4>Second Hurdle</h4>
+<br><p>
+    Now since I have created my own convention, syuntoku's exporter needs to be modified to work with my axis and joints.
+    But since I understand my joints and axis better now, I can modify script to my liking. 
+</p
+
+<br><p>
+    I create a debug mode in the script that would generate a text file with follwoing:
+    <br><strong>Joints list</strong> with type, axis, parent, child, limits and position
+    <br><strong>Link list</strong> with name, mass, COM, inertial data
+    <br><strong>Parent-Child and Joint Data</strong> with origin, axis in child and parent, parent to child rotation, Parent CoM and Child CoM in world etc.
+    See <a href="https://github.com/yamdeeyoumar/fusion2urdf/blob/master/debug/fusion2urdf_debug_output.txt">fusion2urdf_degug_output.txt</a> in the repository for an example of this output.
+</p>
+
+<br><p>
+    Subtarct the world joint n and joint n+1 origins and project 
+    it into parent or n's frame to get required joint xyz value.
+    Since the basis for the parent form the rotation matrix and this 
+    in the debug as well this is done easily.
+    The relative rpy for each joint is given in the debug as well.
+    Update these values for the joint and voila you have a working URDF.
+    I need to add this into the script down the line.
+</p>
+<br><div id="imggrp"><blockquote class="imgur-embed-pub" lang="en" data-id="Qc9I2lS" data-context="false" ><a href="//imgur.com/Qc9I2lS"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></div>
+</p>
 </div>
 </body>
 </html>
