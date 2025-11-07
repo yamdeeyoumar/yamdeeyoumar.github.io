@@ -35,6 +35,7 @@ projects:
 ---   <h2><a href="#cyc">    cycloidal drive </a> </h2>
 ---   <h2><a href="#vacb">    vibration analysis of cantilever beam </a> </h2>
 ---   <h2><a href="#trimmer">    trimmer stand </a> </h2>
+---   <h2><a href="#472">    robot simulation and computer vision </a> </h2>
 </div>
 <div>
 
@@ -550,6 +551,83 @@ I cannot explicitly outline all parameters since this was a project for universi
 
 <br><br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/trimmer/trimmer_5.jpg" alt="image"></div>
 
+</p>
+<br><!-- Mechatronics --><div id="imggrp"><u><h3 id="472">robot simulation and control</h3></u></div>
+<p>
+
+<br><br><p>
+    This project focused on developing a pair of simulated and physical robots capable of 
+    <strong>attack and defense behaviors</strong> in a 2D environment using vision processing,
+    raycasting, and serial communication between a computer and Arduino hardware.
+  </p>
+
+  <br><br><h4>🎯 Objective</h4>
+  <br><br><p>
+    Design two autonomous robots — one attacking, one defending — that can detect, target, and respond 
+    to an opponent using camera input. The system integrates computer vision, control logic, and 
+    hardware actuation, simulating a competitive environment similar to robot dueling.
+  </p>
+
+  <br><br><h4>🧠 My Role</h4>
+  <br><br><p>
+    I developed the <strong>attack program</strong> and implemented key hardware communication components. 
+    The first version made the robot locate the nearest obstacle, move tangentially around it, and 
+    obtain line-of-sight with the opponent before firing. Functions like 
+    <code>find_nearest_obstacle()</code>, <code>align_with_obstacle()</code>, and 
+    <code>move_tangential()</code> formed the basis of this movement logic.
+  </p>
+
+  <br><br><p>
+    In the second iteration, I enhanced obstacle detection, added visual debugging tools using 
+    <code>draw_point_rgb()</code>, and implemented raycasts at each corner of the robot to simulate 
+    <strong>ultrasonic-like sensors</strong>. This provided obstacle proximity feedback in real time, 
+    switching the corner markers from green to red when too close.
+  </p>
+
+  <br><br><p>
+    I also handled <strong>Bluetooth serial communication</strong> between the simulation and the 
+    Arduino-driven hardware, parsing commands in the format <code>1500,1500,1</code> (left PWM, 
+    right PWM, laser state) at 50 Hz. This ensured synchronized motion and firing between virtual 
+    and physical robots.
+  </p>
+
+  <br><br><h4>⚙️ System Highlights</h4>
+    <strong>Attack Logic:</strong> Raycast-based navigation with obstacle tangential movement.
+    <strong>Defense Logic:</strong> Dynamic hiding and zigzag escape using vector geometry.
+    <strong>Vision Processing:</strong> Marker color tracking via centroid detection and size thresholding.
+    <strong>Hardware:</strong> Custom cardboard chassis with 3D-printed motor mounts, Arduino microcontroller, and laser module.
+
+  <br><br><h4>📹 Demonstration</h4>
+  <br><br><p>
+    <a href="https://www.youtube.com/watch?v=p8AYsu3lFxU" target="_blank">Simulation input video</a><br>
+    <a href="https://www.youtube.com/watch?v=_KvUMkgJjPs" target="_blank">Hardware test with laser firing (00:30)</a>
+  </p>
+
+  <br><br><h4>💡 Key Takeaways</h4>
+  <br><br><p>
+    This project combined software, vision, and hardware control — bridging simulation and real-world 
+    actuation. It demonstrated how <strong>sensor fusion, geometry, and control logic</strong> can 
+    produce coordinated robotic behaviors. The raycasting and image-threshold tuning proved crucial 
+    for stable performance in both simulation and physical tests.
+  </p>
+
+  <br><br><p>
+    <strong>Tools &amp; Methods:</strong> C++, OpenCV, Arduino, Bluetooth serial, Raycasting, Vision processing
+    <strong>Outcome:</strong> Functional simulation and prototype robot capable of detecting, tracking, and reacting to an opponent.
+    </p>
+
+<br><br><h4>Report</h4>
+  <br><br><p>
+    <div id="imggrp">
+        <iframe src="pdf/MECH 472 - Final Report.pdf" width="720" height="960">
+        </iframe>
+</div>
+  </p>
+
+  <br><br><h4>Programs</h4>
+  <br><br><p>
+For the various programs, <a href="https://github.com/yamdeeyoumar/mech472_ROB"> click here. </a>
+This was built on a simulation and image manipulation framework provided by our professor, dependnecies are included in the repository.
 </p>
 </div>
 </body>
