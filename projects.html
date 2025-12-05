@@ -42,6 +42,7 @@ projects:
 ---   <h2><a href="#avan">    ld + spout insert head and blade guards </a> </h2>
 ---   <h2><a href="#drone">    drone </a> </h2>
 ---   <h2><a href="#dragon">    dragonstone tablet </a> </h2>
+---   <h2><a href="#idf">    esp idf </a> </h2>
 
 </div>
 <div>
@@ -831,8 +832,129 @@ Also quickly whipped up some blade guards with embedded magnets for knifes blade
 
 <br><!-- Drone --><div id="imggrp"><u><h3 id="drone">drone</h3></u></div>
 <br><p>
-
+I just wanted to make my own drone swarm business and understand what goes into running such swarms. ☺
+My current BOM for the drone is as follows:
 </p>
+<table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Cost (CAD$)</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>1</td>
+        <td>22.18</td>
+        <td><a href="https://www.aliexpress.com/item/1005005789393676.html" target="_blank">HGLRC M100-5883</a></td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>5.32</td>
+        <td><a href="https://www.aliexpress.com/item/1005005152502159.html" target="_blank">2 pairs Jade propellers</a></td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>46</td>
+        <td><a href="https://www.aliexpress.com/item/1005007182111875.html" target="_blank">2* 4S 1500 mAh 45C LiPo</a></td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>7.14</td>
+        <td><a href="https://www.aliexpress.com/item/1005007452519473.html" target="_blank">XT60 Connectors</a></td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>4.5</td>
+        <td><a href="https://www.aliexpress.com/item/1005007257783857.html" target="_blank">XT30 Connectors</a></td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>13.3</td>
+        <td><a href="https://www.aliexpress.com/item/1005005204317611.html" target="_blank">Assorted Hardware</a></td>
+      </tr>
+
+      <tr>
+        <td>7</td>
+        <td>30</td>
+        <td><a href="https://www.aliexpress.com/item/1005009105095243.html" target="_blank">RS2205 2 CW and 2 CCW motors</a></td>
+      </tr>
+
+      <tr>
+        <td>8</td>
+        <td>18</td>
+        <td><a href="https://www.aliexpress.com/item/1005005788050474.html" target="_blank">ELRS Receiver</a></td>
+      </tr>
+
+      <tr>
+        <td>9</td>
+        <td>5</td>
+        <td><a href="https://www.aliexpress.com/item/1005004478094343.html" target="_blank">LiPo Bag</a></td>
+      </tr>
+
+      <tr>
+        <td>10</td>
+        <td>100</td>
+        <td><a href="https://www.aliexpress.com/item/1005008011579904.html" target="_blank">Radiomaster Pocket</a></td>
+      </tr>
+
+      <tr>
+        <td>11</td>
+        <td>8</td>
+        <td><a href="https://www.aliexpress.com/item/1005008517042561.html" target="_blank">Smokestopper</a></td>
+      </tr>
+
+       <tr>
+        <td>12</td>
+        <td>120</td>
+        <td><a href="https://www.aliexpress.com/item/1005009988028640.html?spm=a2g0o.order_list.order_list_main.5.4b201802NFy3iV" target="_blank">Quectel LC29HEA and BS</a></td>
+      </tr>
+
+       <tr>
+        <td><b>Total</b></td>
+        <td>380</td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <br><p>
+    I don't usually splurge out 400 bucks on my personal projects on a whim, I just graduated and asked my dad for another
+    small loan of 400 dollars. ☺
+    I watched a lot of videos and settled on hoarder sam's budget 100 dollar build as the baseline.
+    I also followed some cool drone show companies and a lot of them rock larger 5"+ frames for their drones.
+    I initially wanted to use a esp-fly for this but figured run time would be an issue.
+    I also briefly looked into swarm localisation techniqeus and found UWB / GPS RTK based implementations.
+    For my first implementation I am going the RTK route and seeing how that goes. I only ahd the onboard GPS
+    initially and just ordered the module for the base station. (Dec 1)
+</p>
+<br><p>
+  Please don't roast my soldering, I thought I fried one of power solder pads and was having an issue
+  getting my motors to arm using Arducopter. I would get ESC beeps so I knew there was life within the motors.
+  So I switched to the recommended Betaflight firmware in the aliexpress description and the motors armed first  try. I think its a pinout issue w.r.t.
+  the available firmware for the Dake H743 and my model, will come back to this as a very pwowerful open source drone swarm
+  planner is available for the ardupilot ecosystem, betaflight caters more to freestyle and full acro racers.
+</p>
+add image of solder
+<br><p>
+  I was having issues with the M100 running on both firmwares so I brought the multimeter out and for some reason the Vin and Gnd pins on 
+  the connector were swapped. After fixing that I was able to get GPS to come to life.
+</p>
+add fixing image
+<br><p>
+  I am also currently honing my Line of Sight acro skills, the 5" is a beast to control for newbies And
+  in a small room. Shortly after its first flight video below, I full throttled it into the ceiling. lol
+  But that first flight was exhilarating, I am debating if I should grab a small whoop to fly indoors, but 
+  the VTX + goggles + cam would set me back another 300 bucks, decisions, decisions. Lets focus on swarm for now. ☺
+</p>
+add first flight and recent liftoff gameplay
 
 <br><!-- Dragonstone --><div id="imggrp"><u><h3 id="dragon">dragonstone tablet</h3></u></div>
 <br><p>
@@ -879,6 +1001,8 @@ of the features from ChatGPT, I used <a href="https://imagetostl.com/">imagetost
 
 </p>
 <br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/dragonstone/Dragonstone_3.jpg" alt="image"></div>
+<br><!-- esp idf --><div id="imggrp"><u><h3 id="idf">esp idf</h3></u></div>
+<br><p>
 <br><p>
 
 </div>
