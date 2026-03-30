@@ -995,15 +995,34 @@ of the features from ChatGPT, I used <a href="https://imagetostl.com/">imagetost
   and Dragons logo locked in place with uv resin. Tadaaa!
 </p>
 
-</p>
 <br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/dragonstone/Dragonstone_2.jpg" alt="image"></div>
-<br><p>
-
-</p>
 <br><div id="imggrp"><img loading="lazy" id="xllpic" src="/images/dragonstone/Dragonstone_3.jpg" alt="image"></div>
+
 <br><!-- esp idf --><div id="imggrp"><u><h3 id="idf">esp idf</h3></u></div>
 <br><p>
+  enough with the abstraction, want to get my hands dirty with some thing much more low level.
+  very simple, get a ToF sensor (VL53L1X) to display distance, bonus challenge: don't use a premade esp idf component.
+</p>
 <br><p>
+  Followed Yuri's guide to get setup with esp idf, very easy within VS code. Setup menuconfig for my dev environment and esp32.
+  I wanted to get talk to the registers but unfortunately STM deems the VL53L1X registers to be a bit complicated and they don't want 
+  us messing up the module so they provide an api instead.
+</p>
+<br><p>
+  Register the api as an idf component using the component cmake file, DO NOT MODIFY the header files and go
+  to town developing the functions in the platform.c file for your hardware (esp32 in my case).
+  I talked to the module using the i2c bus, the idf api reference makes it very easy to initialise the bus
+  and implement platform function that are used by the api calls. Main functions we used were i2c_master_multi_buffer_transmit(), i2c_master_transmit() And
+  i2c_master_receive(). Task handling and scheduling is controlled using freeRTOS commands so the wait functions rely on VtaskDelay().
+  This is the first time I actually worked in hexadecimal and truly understood the power of shifts and bitwise operations.
+  I2C transactions are bytes, and for my module there are 2 common i2c addresses online 0x29 and 0x52 or 0x53, now I know
+  that the actual address is only 7 bits and the last bit shifts the 7 bits to the right and depending on if it is a 1 or 0
+  it indicates if the next message is a read or write operation; so 0x52 is left shifted 0x29 lol. Also the VL53L1X uses 16bit registers which means they need to fit
+  in 2 transactions. And depending on the endianness of my system I need swap MSB and LSB around lol. Overall was
+  a good 2 weeks of learning; some platform functions are missing like those for DWords since they were not used in my application and
+  the code is a bit nooby, but it worked! I will like to develop this with interrupts next, I have been interested in low power consumption projects
+  and looks like their programming is always interrupt based.
+</p>
 
 </div>
 </body>
